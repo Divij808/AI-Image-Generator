@@ -103,13 +103,6 @@ The project includes an automated installation script:
 ```bash
 python install.py
 ```
-
-Alternatively, if the project contains a `requirements.txt` file:
-
-```bash
-pip install -r requirements.txt
-```
-
 ## 5. Hugging Face authentication
 
 If authentication is required for the model, install the Hugging Face CLI and log in:

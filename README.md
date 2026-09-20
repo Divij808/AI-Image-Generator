@@ -1,4 +1,4 @@
-# Local AI Image Generator & Editor 🎨
+# Local AI Image Generator & Editor 
 
 A **local AI-powered image generation and editing application** built with Python and Stable Diffusion.
 
@@ -6,36 +6,36 @@ The project allows you to generate images from text prompts and edit existing im
 
 ---
 
-## ✨ Features
+## Features
 
-- 🖼️ **Text-to-Image Generation**
+- **Text-to-Image Generation**
   - Generate images from natural-language prompts.
   - Uses the `runwayml/stable-diffusion-v1-5` Stable Diffusion model.
   - Generates images at **512 × 512** resolution.
 
-- ✏️ **Image-to-Image Editing**
+- **Image-to-Image Editing**
   - Load an existing image.
   - Provide an editing prompt.
   - Generate a modified version of the image.
 
-- 💻 **Local AI Processing**
+- **Local AI Processing**
   - Runs the Stable Diffusion model locally.
   - Does not require an external image-generation API.
 
-- 🧠 **CPU-Compatible Configuration**
+- **CPU-Compatible Configuration**
   - Uses `torch.float32` for compatibility with CPU-based systems.
   - An NVIDIA GPU is optional but can significantly improve generation speed.
 
-- 📋 **Interactive Menu**
+-  **Interactive Menu**
   - Simple command-line interface.
   - Choose between generating a new image or editing an existing image.
 
-- ⚙️ **Automated Installation**
+- **Automated Installation**
   - Includes an `install.py` script to help install the required Python packages.
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **Python 3.10+**
 - **PyTorch**
@@ -47,7 +47,7 @@ The project allows you to generate images from text prompts and edit existing im
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 Before installing the project, make sure you have:
 
@@ -58,11 +58,11 @@ Before installing the project, make sure you have:
 - Internet connection for downloading the model and required packages
 - Hugging Face account — **may be required depending on model access**
 
-> ⚠️ Stable Diffusion models can require significant storage, RAM and/or VRAM. Generation on a CPU may take considerably longer than generation on a supported GPU.
+> Stable Diffusion models can require significant storage, RAM and/or VRAM. Generation on a CPU may take considerably longer than generation on a supported GPU.
 
 ---
 
-# 🚀 Installation
+# Installation
 
 ## 1. Clone or download the project
 
@@ -122,9 +122,9 @@ Follow the instructions and enter your Hugging Face access token when prompted.
 
 ---
 
-# ▶️ Running the Application
+# Running the Application
 
-Once installation is complete, run the application from the project directory.
+After installation, run the application from the project directory.
 
 ## Windows
 
@@ -142,7 +142,7 @@ The application will display an interactive menu.
 
 ---
 
-# 🖼️ Using the Image Generator
+#  Using the Image Generator
 
 After launching the application, select the relevant option from the menu.
 
@@ -154,7 +154,7 @@ Choose:
 1
 ```
 
-You will be asked to enter a text prompt.
+Enter a text prompt.
 
 For example:
 
@@ -174,7 +174,7 @@ base_image_3.png
 
 ---
 
-# ✏️ Using Image-to-Image Editing
+# Using Image-to-Image Editing
 
 Choose:
 
@@ -202,7 +202,7 @@ edited_image_3.png
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 A typical project structure is:
 
@@ -227,7 +227,7 @@ The exact files may vary depending on the current version of the project.
 
 ---
 
-# ⚡ Performance
+#  Performance
 
 Stable Diffusion is a relatively large AI model, so performance depends heavily on your hardware.
 
@@ -249,7 +249,7 @@ The amount of available VRAM can also affect which configurations are practical.
 
 ---
 
-# 🔄 How It Works
+#  How It Works
 
 The basic workflow is:
 
@@ -279,7 +279,7 @@ Prompt          Existing Image
 
 ---
 
-# 🧠 Model
+# Model
 
 This project uses:
 
@@ -293,7 +293,7 @@ The model is downloaded and used locally through the Hugging Face ecosystem.
 
 ---
 
-# 🔧 Troubleshooting
+# Troubleshooting
 
 ## Python is not recognised
 
@@ -335,7 +335,7 @@ Stable Diffusion can require substantial system resources.
 
 ---
 
-# 🔐 Local Processing
+# Local Processing
 
 The application is designed to run the image-generation process locally after the required model and dependencies have been downloaded.
 
@@ -343,7 +343,7 @@ Your prompts and images are therefore processed by the local application rather 
 
 ---
 
-# 📜 License
+#  License
 
 This project is released under the **MIT License**.
 
@@ -351,12 +351,12 @@ You are free to use, modify and distribute the project in accordance with the te
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
-**Divij Mekala**
+**Divij Mekala**- @Divij808
 
 A Python project exploring **generative AI, Stable Diffusion and local AI applications**.
 
 ---
 
-⭐ If you find the project useful, feel free to improve it, experiment with different prompts and extend its functionality!
+

@@ -5,8 +5,8 @@ from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, D
 
 small_model = "runwayml/stable-diffusion-v1-5"
 print("Welcome to AI Image Generator")
-time.sleep(1)
 print("This is free and unlimited")
+print("Please wait as we are loading the application")
 
 image_number = 0
 run = True
@@ -25,15 +25,19 @@ while run:
 
     if Option == 1:
         print("Loading Text-to-Image model...")
-        pipe = StableDiffusionPipeline.from_pretrained(small_model, torch_dtype=torch.float32, local_files_only=False)
+
+        pipe = StableDiffusionPipeline.from_pretrained(small_model, torch_dtype=torch.float32, low_cpu_mem_usage=True,
+                                                       safety_checker=None, requires_safety_checker=False,
+                                                       local_files_only=False)
         pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
+
         pipe.enable_attention_slicing()
         pipe = pipe.to("cpu")
 
-        initial_prompt = input("Enter the INITIAL prompt to create the image: ")
+        initial_prompt = input("Enter the initial prompt to create the image: ")
         print("Generating base image (this may take a few minutes on CPU)...")
 
-        initial_result = pipe(prompt=initial_prompt, num_inference_steps=25, guidance_scale=7.5, height=512, width=512)
+        initial_result = pipe(prompt=initial_prompt, num_inference_steps=20, guidance_scale=7.5, height=512, width=512)
         base_image = initial_result.images[0]
 
         filename = f"base_image_{image_number}.png"
@@ -41,7 +45,6 @@ while run:
         print(f"Base image saved as '{filename}'.")
         image_number += 1
 
-        # Free memory
         del pipe
 
     elif Option == 2:
@@ -53,17 +56,20 @@ while run:
             continue
 
         print("Loading Image-to-Image editing model...")
-        pipe_img2img = StableDiffusionImg2ImgPipeline.from_pretrained(small_model, torch_dtype=torch.float32,
-                                                                      local_files_only=False)
+
+        pipe_img2img = StableDiffusionImg2ImgPipeline.from_pretrained(
+            small_model, torch_dtype=torch.float32, low_cpu_mem_usage=True, safety_checker=None,
+            requires_safety_checker=False, local_files_only=False)
         pipe_img2img.scheduler = DPMSolverMultistepScheduler.from_config(pipe_img2img.scheduler.config)
+
         pipe_img2img.enable_attention_slicing()
         pipe_img2img = pipe_img2img.to("cpu")
 
         edit_prompt = input("Enter the NEW prompt to edit/modify the image: ")
         print("Applying edits to the image...")
 
-        edited_result = pipe_img2img(prompt=edit_prompt, image=base_image, strength=0.75, num_inference_steps=30,
-                                     guidance_scale=7.5)
+        edited_result = pipe_img2img(prompt=edit_prompt, image=base_image, strength=0.75, num_inference_steps=25, guidance_scale=7.5)
+
         final_image = edited_result.images[0]
 
         final_filename = f"edited_image_{target_index}.png"

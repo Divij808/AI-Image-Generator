@@ -1,8 +1,6 @@
-import torch
-import traceback
+import traceback, torch
 from PIL import Image
 from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, DPMSolverMultistepScheduler
-
 
 def main():
     small_model = "runwayml/stable-diffusion-v1-5"
@@ -12,7 +10,6 @@ def main():
 
     image_number = 0
     run = True
-
     while run:
         print("\n--- MENU ---")
         print("Press 1 to create an image")
@@ -91,7 +88,6 @@ def main():
             run = False
         else:
             print("Invalid option. Please choose 1, 2, or 3.")
-
 
 if __name__ == "__main__":
     try:
